@@ -5,15 +5,30 @@ import random
 
 def play():
     print("Welcome to the Number Guessing Game!")
-    secret = random.randint(1, 100)
+    # Feature 1: Difficulty Levels
+
+    difficulty = input("Choose difficulty (Easy, Medium, Hard): ").lower()
+    if difficulty == "easy":
+        secret = random.randint(1, 50)
+        
+    elif difficulty == "hard":
+        secret = random.randint(1, 200)
+    else:
+        secret = random.randint(1, 100)
+
     guess = 0
     attempts = 0
-
+    
     while guess != secret:
-        guess = int(input("Your guess: "))
+        try:
+            guess = int(input("Your guess"))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
         attempts += 1
         if guess < secret:
             print("Too low!")
+
         elif guess > secret:
             print("Too high!")
         else:
