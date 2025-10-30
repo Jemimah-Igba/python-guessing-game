@@ -19,6 +19,8 @@ def play():
     guess = 0
     attempts = 0
     
+    high_score = None
+
     while guess != secret:
     #Feature 2: Input validation with try/except
         guess_input = input("Your guess (or type 'quit' to exit):  ")
@@ -47,6 +49,12 @@ def play():
             print("Too high!")
         else:
             print(f"You got it in {attempts} tries!")
+            #Feature 4: update high score 
+            if high_score is None or attempts < high_score:
+                high_score = attempts 
+                print("New High Score!")
+            else:
+                print(f"High Score is still {high_score} attempts.")
 
 if __name__ == "__main__":
     play()
