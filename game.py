@@ -21,7 +21,15 @@ def play():
     
     while guess != secret:
     #Feature 2: Input validation with try/except
-        guess_input = input("Your guess:  ")
+        guess_input = input("Your guess (or type 'quit' to exit):  ")
+
+    #Feature 3: quit option 
+
+        if guess_input.lower() == "quit":
+            print("Thanks for playing! Goodbye.")
+            break
+
+
         try:
             guess = int(input(guess_input))
         except ValueError:
