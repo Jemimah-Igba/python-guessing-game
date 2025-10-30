@@ -20,12 +20,18 @@ def play():
     attempts = 0
     
     while guess != secret:
+    #Feature 2: Input validation with try/except
+        guess_input = input("Your guess:  ")
         try:
-            guess = int(input("Your guess"))
+            guess = int(input(guess_input))
         except ValueError:
             print("Please enter a valid number.")
             continue
+
+    
         attempts += 1
+
+
         if guess < secret:
             print("Too low!")
 
