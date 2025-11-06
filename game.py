@@ -10,6 +10,8 @@ class NumberGuessGame:
         self.master = master
         master.title("Number Guessing Game")
 
+        tk.Label(master, text="Welcome to the Number Guessing Game!", font=("Arial", 14, "bold")).pack(pady=10)
+
         self.high_score = None
 
         # Feature 1: Difficulty
